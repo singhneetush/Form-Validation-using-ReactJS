@@ -31,11 +31,7 @@ function App() {
 		// console.log(formErrors);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
 			console.log(formValues);
-<<<<<<< HEAD
 		} else {
-=======
-		}else {
->>>>>>> c9870d7f714ed4510033eac1c724cd5c3a65a782
 			console.log("good to go");
 		}
 	}, [formErrors]);
@@ -63,7 +59,6 @@ function App() {
 		
 	};
 
-<<<<<<< HEAD
 	
 
 	return (
@@ -117,18 +112,6 @@ function App() {
 					{JSON.stringify(formValues, undefined, 2)}
 				</pre>
 			</div>
-=======
-				<button
-					className='fluid ui button blue'
-					type='submit'
-					onClick={handleSubmitButton}>
-					Submit
-				</button>
-			</form>
-			<pre >
-			{JSON.stringify(formValues, undefined, 2)}
-			</pre>
->>>>>>> c9870d7f714ed4510033eac1c724cd5c3a65a782
 		</div>
 	);
 }
