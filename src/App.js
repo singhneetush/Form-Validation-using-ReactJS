@@ -30,6 +30,8 @@ function App() {
 		console.log(formErrors);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
 			console.log(formValues);
+		}else {
+			console.log("good to go");
 		}
 	}, [formErrors]);
 
