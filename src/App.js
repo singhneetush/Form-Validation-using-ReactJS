@@ -21,6 +21,7 @@ function App() {
 		console.log(formValues);
 	};
 	const handleSubmit = (e) => {
+		// prevents the submit button from refreshing the page
 		e.preventDefault();
 		setFormErrors(validate(formValues));
 		setIsSubmit(true);
@@ -30,13 +31,14 @@ function App() {
 		console.log(formErrors);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
 			console.log(formValues);
+		} else {
+			console.log("good to go");
 		}
 	}, [formErrors]);
 
 	const validate = (values) => {
 		const errors = {};
-		const regex =
-			/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+		
 		if (!values.username) {
 			errors.username = 'Username is required !';
 		}
@@ -50,58 +52,66 @@ function App() {
 		return errors;
 	};
 
+	
+	
 	const handleSubmitButton = () => {
-		return (
-			console.log(JSON.stringify(formValues , undefined,2))
-		);
+		console.log(JSON.stringify(formValues, undefined, 2));
+		
 	};
-	return (
-		<div className='container'>
-			<form className='ui form' onSubmit={handleSubmit}>
-				<h1 className='heading'>Sign in </h1>
-				<div className='ui divider'></div>
-				<div className='field'>
-					<label>Username</label>
-					<input
-						type='text'
-						name='username'
-						placeholder='Username'
-						onChange={handleChange}
-						value={formValues.username}
-					/>
-				</div>
-				<p>{formErrors.username}</p>
-				<div className='field'>
-					<label>Email</label>
-					<input
-						type='text'
-						name='email'
-						placeholder='email'
-						onChange={handleChange}
-						value={formValues.email}
-					/>
-				</div>
-				<p>{formErrors.email}</p>
-				<div className='field'>
-					<label>Password</label>
-					<input
-						type='text'
-						name='password'
-						placeholder='Password'
-						onChange={handleChange}
-						value={formValues.password}
-					/>
-				</div>
-				<p>{formErrors.password}</p>
 
-				<button
-					className='fluid ui button blue'
-					type='submit'
-					onClick={handleSubmitButton}>
-					Submit
-				</button>
-			</form>
-			
+	
+
+	return (
+		<div className='main'>
+			<div className='container'>
+				<form className='ui form' onSubmit={handleSubmit}>
+					<h1 className='heading'>Sign in </h1>
+					<div className='ui divider'></div>
+					<div className='field'>
+						<label>Username</label>
+						<input
+							type='text'
+							name='username'
+							placeholder='Username'
+							onChange={handleChange}
+							value={formValues.username}
+						/>
+					</div>
+					<p>{formErrors.username}</p>
+					<div className='field'>
+						<label>Email</label>
+						<input
+							type='text'
+							name='email'
+							placeholder='email'
+							onChange={handleChange}
+							value={formValues.email}
+						/>
+					</div>
+					<p>{formErrors.email}</p>
+					<div className='field'>
+						<label>Password</label>
+						<input
+							type='text'
+							name='password'
+							placeholder='Password'
+							onChange={handleChange}
+							value={formValues.password}
+						/>
+					</div>
+					<p>{formErrors.password}</p>
+
+					<button
+						className='fluid ui button blue'
+						type='submit'
+						onClick={handleSubmitButton}>
+						Submit
+					</button>
+				</form>
+				<pre >
+					{JSON.stringify(formValues, undefined, 2)}
+				</pre>
+			</div>
 		</div>
 	);
 }
