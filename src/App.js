@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+// import {
+// 	BrowserRouter as Router,
+// 	Routes,
+// 	Route,
+// 	useNavigate,
+// } from 'react-router-dom';
+// import Card from './Card';
 
 function App() {
+	// const navigate = useNavigate();
 	// initial state variables
 	const initialValues = {
 		username: '',
@@ -26,23 +34,18 @@ function App() {
 		setFormErrors(validate(formValues));
 		setIsSubmit(true);
 	};
-
 	useEffect(() => {
 		// console.log(formErrors);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
 			console.log(formValues);
-<<<<<<< HEAD
-		} else {
-=======
-		}else {
->>>>>>> c9870d7f714ed4510033eac1c724cd5c3a65a782
-			console.log("good to go");
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [formErrors]);
+
 
 	const validate = (values) => {
 		const errors = {};
-		
+
 		if (!values.username) {
 			errors.username = 'Username is required !';
 		}
@@ -56,15 +59,9 @@ function App() {
 		return errors;
 	};
 
-	
-	
 	const handleSubmitButton = () => {
 		console.log(JSON.stringify(formValues, undefined, 2));
-		
 	};
-
-<<<<<<< HEAD
-	
 
 	return (
 		<div className='main'>
@@ -112,23 +109,10 @@ function App() {
 						onClick={handleSubmitButton}>
 						Submit
 					</button>
+					
 				</form>
-				<pre >
-					{JSON.stringify(formValues, undefined, 2)}
-				</pre>
+				<pre>{JSON.stringify(formValues, undefined, 2)}</pre>
 			</div>
-=======
-				<button
-					className='fluid ui button blue'
-					type='submit'
-					onClick={handleSubmitButton}>
-					Submit
-				</button>
-			</form>
-			<pre >
-			{JSON.stringify(formValues, undefined, 2)}
-			</pre>
->>>>>>> c9870d7f714ed4510033eac1c724cd5c3a65a782
 		</div>
 	);
 }
