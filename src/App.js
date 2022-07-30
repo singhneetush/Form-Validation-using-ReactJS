@@ -100,7 +100,9 @@ function App() {
 					Submit
 				</button>
 			</form>
-			
+			<pre >
+			{JSON.stringify(formValues, undefined, 2)}
+			</pre>
 		</div>
 	);
 }
